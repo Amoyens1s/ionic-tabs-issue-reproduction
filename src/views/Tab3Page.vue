@@ -13,11 +13,18 @@
       </ion-header>
 
       <ExploreContainer name="Tab 3 page" />
+      <div v-for="e in 20000" :key="e">{{ e }}</div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+} from "@ionic/vue";
+import ExploreContainer from "@/components/ExploreContainer.vue";
 </script>
