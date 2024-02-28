@@ -1,0 +1,17 @@
+build-android:
+  image: cimg/android:2023.05-node
+  stage: test
+  script:
+    - yarn config set sharp_binary_host "https://npmmirror.com/mirrors/sharp"
+    - yarn config set sharp_libvips_binary_host "https://npmmirror.com/mirrors/sharp-libvips"
+    - yarn install
+    - yarn patch
+    - yarn build:android
+    - cd android
+    - ./gradlew assembleRelease
+  artifacts:
+    paths:
+      - android/app/build/outputs/apk/release/app-release.apk
+
+include:
+  - local: .gitlab/ci/*.yml
